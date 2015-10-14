@@ -1,8 +1,11 @@
 <?php
 session_start();
-error_reporting(1);
+error_reporting(0);
 require 'database/connect.php';
-require 'function/users.php';
+require 'functions/users.php';
+
+
+$errors= array();
 
 ?>
 

@@ -21,6 +21,11 @@ if (empty($_POST)===false){
 	} else if (user_active($username)===false){
 		$error[]='You haven\'t activated your account!';
 	} else {
+		
+		if (strlen($password) > 32){
+			$error[] = 'Username too long';
+		}
+		
 		$login = login($username, $password);
 		if ($login === false){
 			$error[] = 'That username/password is incorrect';

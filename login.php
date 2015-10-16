@@ -1,6 +1,7 @@
 <?php
 
 include 'core/init.php';
+include 'includes/overall/header.php'; 
 
 
 
@@ -25,6 +26,12 @@ if (empty($_POST)===false){
 			$error[] = 'That username/password is incorrect';
 			
 		}else {
+// 			die($login);
+// 			echo "ok";
+			$_SESSION['user_id']=$login;
+			header('Location:index.php');
+			exit();
+			
 			//Set the user seession
 			//redirect user to home
 			
@@ -35,6 +42,6 @@ if (empty($_POST)===false){
 	
 	
 }
-
+ include 'includes/overall/footer.php';
 
 ?>

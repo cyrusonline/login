@@ -1,10 +1,6 @@
 <?php
 
 include 'core/init.php';
-include 'includes/overall/header.php'; 
-
-
-
 
 
 
@@ -14,21 +10,21 @@ if (empty($_POST)===false){
 	$password = $_POST['password'];
 	
 	if (empty($username)===true||empty($password)===true){
-		$error[]='You need to enter a username and password';
+		$errors[]='You need to enter a username and password';
 		
 	}else if(user_exists($username)===false){
-		$error[]='We can\'t find that username. Have you registered?';
+		$errors[]='We can\'t find that username. Have you registered?';
 	} else if (user_active($username)===false){
-		$error[]='You haven\'t activated your account!';
+		$errors[]='You haven\'t activated your account!';
 	} else {
 		
 		if (strlen($password) > 32){
-			$error[] = 'Username too long';
+			$errors[] = 'Username too long';
 		}
 		
 		$login = login($username, $password);
 		if ($login === false){
-			$error[] = 'That username/password is incorrect';
+			$errors[] = 'That username/password is incorrect';
 			
 		}else {
 // 			die($login);
@@ -43,10 +39,19 @@ if (empty($_POST)===false){
 		}
 	}
 	
-	print_r($error);
+	//print_r($error);
 	
+	
+}else {
+	$errors[]='No data received';
 	
 }
+
+include 'includes/overall/header.php';
+?>
+ddd
+<?php 
+output_errors($errors);
  include 'includes/overall/footer.php';
 
 ?>

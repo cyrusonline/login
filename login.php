@@ -48,10 +48,17 @@ if (empty($_POST)===false){
 }
 
 include 'includes/overall/header.php';
+if (empty($errors)===false){
+	
+	
+}
 ?>
-ddd
+<h2>Sorry, but...</h2>
 <?php 
-output_errors($errors);
+echo output_errors($errors);
+
+$err = array('1stError','2ndError','3rdError','4thError');
+echo xxx($err);
  include 'includes/overall/footer.php';
 
 ?>

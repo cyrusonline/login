@@ -8,14 +8,26 @@ function user_data($user_id){
 	
 	//echo $func_num_args;
 	
-	print_r($func_get_args);
+// 	print_r($func_get_args);
 // 	print_r($func_num_args);
 
 		if($func_num_args>1){
 			unset($func_get_args[0]);
+			$fields = '`'.implode('`,`',$func_get_args).'`';
+// 			echo "SELECT $fields FROM `users` WHERE `user_id`=$user_id";
+			
+			//echo $fields;
+			$data = mysql_fetch_assoc(mysql_query("SELECT $fields FROM `users` WHERE `user_id`=$user_id"));
+// 			print_r($data);
+// 			die();
+			
+			
+			return $data;
+			
+			
 		}
-		print_r($func_num_args);
-		print_r($func_get_args);
+		//print_r($func_num_args);
+// 		print_r($func_get_args);
 	
 }
 

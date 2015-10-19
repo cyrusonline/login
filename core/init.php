@@ -6,8 +6,10 @@ require 'functions/general.php';
 require 'functions/users.php';
 if(logged_in()===true){
 	
-	
-	$user_data = user_data($_SESSION['user_id'],'first_name','last_name','email');
+	$session_user_id = $_SESSION['user_id'];
+	$user_data = user_data($session_user_id,'user_id','username','first_name','last_name','email');
+
+
 	
 }
 $errors= array();

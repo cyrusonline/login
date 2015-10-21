@@ -1,11 +1,54 @@
-<?php //include 'core/init.php'; ?>
-<?php include 'includes/overall/header.php'; ?>
-  <h1>Home</h1>
-  <p>Register.</p>
+<?php include 'core/init.php';
+include 'includes/overall/header.php'; 
+if (empty($_POST)===false){
+	echo "Form submitted";
+	
+}
+?>
+  <h1>Register</h1>
 
+
+<form action = "" method="post">
+<ul>
+<li>
+	Username*:<br>
+	<input type="text" name="username">
+
+</li>
+<li>
+	Password*:<br>
+	<input type="password" name="password">
+
+</li>
+
+<li>
+	Password again*:<br>
+	<input type="password" name="password_again">
+
+</li>
+
+<li>
+	First name*:<br>
+	<input type="text" name="first_name">
+
+</li>
+<li>
+	Last name:<br>
+	<input type="text" name="last_name">
+
+</li>
+<li>
+	Email*:<br>
+	<input type="text" name="email">
+
+</li>
+<li>
+<input type = "submit" value = "Register">
+</li>
+</ul>
+
+</form>
+  
 <?php
-
-
-
 include 'includes/overall/footer.php';
 ?>

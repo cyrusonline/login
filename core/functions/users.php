@@ -1,5 +1,11 @@
 <?php
 
+
+function user_count(){
+	return (mysql_result(mysql_query("SELECT COUNT(`user_id`) FROM `users` WHERE `active` = 1"), 0)) ;
+	
+}
+
 function user_data($user_id){
 	$data = array();
 	$user_id = (int)$user_id;
@@ -14,14 +20,14 @@ function user_data($user_id){
 		if($func_num_args>1){
 			unset($func_get_args[0]);
 			$fields = '`'.implode('`,`',$func_get_args).'`';
-// 			echo "SELECT $fields FROM `users` WHERE `user_id`=$user_id";
+			echo "SELECT $fields FROM `users` WHERE `user_id`=$user_id";
 			
 			//echo $fields;
 			$data = mysql_fetch_assoc(mysql_query("SELECT $fields FROM `users` WHERE `user_id`=$user_id"));
 // 			print_r($data);
 // 			die();
 			
-			
+// 			echo $data;
 			return $data;
 			
 			

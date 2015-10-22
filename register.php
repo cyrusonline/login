@@ -2,10 +2,22 @@
 include 'includes/overall/header.php'; 
 if (empty($_POST)===false){
 	$required_fields = array('username','password','password_again','first_name','email');
-	echo '<pre>',print_r($_POST,true),'</pre>';
+	//echo '<pre>',print_r($_POST,true),'</pre>';
+	//Check whether the fields are empty
 	
+	foreach ($_POST as $key=>$value){
+		if(empty($value) && in_array($key,$required_fields) === true){
+			$errors[] = 'Fields marked with an asterisk are required';
+break 1;
+			
+		}
+		
+	}
 	
 }
+
+print_r($errors);
+
 ?>
   <h1>Register</h1>
 

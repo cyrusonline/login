@@ -1,7 +1,9 @@
 <?php include 'core/init.php';
 include 'includes/overall/header.php'; 
 if (empty($_POST)===false){
-	echo "Form submitted";
+	$required_fields = array('username','password','password_again','first_name','email');
+	echo '<pre>',print_r($_POST,true),'</pre>';
+	
 	
 }
 ?>

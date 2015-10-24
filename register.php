@@ -14,6 +14,33 @@ break 1;
 		
 	}
 	
+	//Start validate
+	if (empty($errors)===true){
+		if (user_exists($_POST['username'])===true){
+			$errors[]='Sorry, the username \''.$_POST['username'].'\' is already exists';
+		}
+		
+// 		if(preg_match("/\\s/", $_POST["username"]) == true){
+// 			$errors[] = "Your username must not contain any spaces.";
+// 		}
+		
+		if (preg_match("/\\s/",$_POST['username']) == true){
+			$errors[] = 'Your username must not contain any spacessss';
+			
+		}
+		
+		if (strlen($_POST['password'])<6){
+			$errors[]= 'Your password must be at least 6 characters';
+			
+		}
+		
+		if ($_POST['password']!==$_POST['password_again']){
+			$errors[] = 'Your password do not match';
+			
+		}
+		
+	}
+	
 }
 
 print_r($errors);

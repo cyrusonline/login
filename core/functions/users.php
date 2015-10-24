@@ -53,6 +53,16 @@ function user_exists($username){
 	
 }
 
+function email_exists($email){
+
+
+	$email = sanitize($email);
+	return (mysql_result(mysql_query("SELECT COUNT(`user_id`) FROM `users` WHERE `email` = '$email'"), 0) == 1) ? true : false;
+
+
+
+}
+
 // function user_exists($username){
 // 	$username = sanitize($username);
 // 	$query = mysql_query("SELECT COUNT(`user_id`) FROM `users` WHERE `username` = '$username'");

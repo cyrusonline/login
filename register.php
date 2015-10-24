@@ -39,15 +39,32 @@ break 1;
 			
 		}
 		
+		if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
+			$errors[] = "Invalid email format";
+		}
+		
+		if (email_exists($_POST['email'])===true){
+			$errors[]='Sorry, the email \''.$_POST['email'].'\' is already in use';
+		}
 	}
 	
 }
 
-print_r($errors);
+// print_r($errors);
 
 ?>
   <h1>Register</h1>
+<?php 
+if (empty($_POST) === true && empty($errors)===true){
+	//register user
+}else {
+	//output error
+	//the function below is inside the general.php
+	echo output_errors($errors);
+	
+}
 
+?>
 
 <form action = "" method="post">
 <ul>

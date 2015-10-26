@@ -1,5 +1,15 @@
 <?php
-
+function register_user($register_data){
+	$register_data['password'] = md5($register_data['password']);
+	
+// 	print_r($register_data);
+	$fields = '`'.implode('`,`',array_keys($register_data)).'`';
+	//echo $data/'<br>';
+	$data ='\''. implode('\',\'',$register_data).'\'';
+	echo $fields."<br>";
+	echo $data;
+	
+}
 
 function user_count(){
 	return (mysql_result(mysql_query("SELECT COUNT(`user_id`) FROM `users` WHERE `active` = 1"), 0)) ;

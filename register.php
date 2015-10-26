@@ -55,8 +55,28 @@ break 1;
 ?>
   <h1>Register</h1>
 <?php 
-if (empty($_POST) === true && empty($errors)===true){
+if (empty($_POST) === false && empty($errors)===true){
 	//register user
+	$register_data = array(
+			//''=>$_POST[''];
+			'username' =>$_POST['username'],
+			'password' =>$_POST['password'],
+			'first_name' =>$_POST['first_name'],
+			'last_name' =>$_POST['last_name'],
+			'email' =>$_POST['email']
+			
+	
+			
+			
+	);
+	
+	//print_r($register_data);
+	register_user($register_data);
+	//redirect
+	//exit
+	
+	
+	
 }else {
 	//output error
 	//the function below is inside the general.php

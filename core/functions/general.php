@@ -9,7 +9,7 @@ function  sanitize($data){
 }
 
 
-// function output_errors($errors){
+// function output_errorss($errors){
 // 	$output = array();
 // 	foreach ($errors as $error){
 
@@ -24,6 +24,7 @@ function  sanitize($data){
 
 
 function output_errors($errors){
+
 	return '<ul><li>'.implode('</li><li>',$errors).'</li></ul>';
 	
 	

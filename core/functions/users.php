@@ -6,9 +6,13 @@ function register_user($register_data){
 	$fields = '`'.implode('`,`',array_keys($register_data)).'`';
 	//echo $data/'<br>';
 	$data ='\''. implode('\',\'',$register_data).'\'';
-	echo $fields."<br>";
-	echo $data;
+// 	echo $fields."<br>";
+// 	echo $data;
+// 	echo "INSERT INTO `users` ($fields) VALUES ($data)";
+// 	die();
 	
+	mysql_query("INSERT INTO `users` ($fields) VALUES ($data)");
+
 }
 
 function user_count(){
@@ -30,7 +34,7 @@ function user_data($user_id){
 		if($func_num_args>1){
 			unset($func_get_args[0]);
 			$fields = '`'.implode('`,`',$func_get_args).'`';
-			echo "SELECT $fields FROM `users` WHERE `user_id`=$user_id";
+			//echo "SELECT $fields FROM `users` WHERE `user_id`=$user_id";
 			
 			//echo $fields;
 			$data = mysql_fetch_assoc(mysql_query("SELECT $fields FROM `users` WHERE `user_id`=$user_id"));

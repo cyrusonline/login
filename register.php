@@ -55,6 +55,14 @@ break 1;
 ?>
   <h1>Register</h1>
 <?php 
+//&& empty($_GET['success']) is to check 
+
+
+if(isset($_GET['success'])&& empty($_GET['success']) ){
+	echo 'You \'ve been registered successfully!';
+}else {
+	
+
 if (empty($_POST) === false && empty($errors)===true){
 	//register user
 	$register_data = array(
@@ -74,6 +82,8 @@ if (empty($_POST) === false && empty($errors)===true){
 	register_user($register_data);
 	//redirect
 	//exit
+	header('Location:register.php?success');
+	exit();
 	
 	
 	
@@ -81,8 +91,11 @@ if (empty($_POST) === false && empty($errors)===true){
 	//output error
 	//the function below is inside the general.php
 	echo output_errors($errors);
+// 	echo output_errorss($errors);
 	
 }
+
+
 
 ?>
 
@@ -128,5 +141,7 @@ if (empty($_POST) === false && empty($errors)===true){
 </form>
   
 <?php
+}
+
 include 'includes/overall/footer.php';
 ?>

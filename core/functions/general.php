@@ -1,4 +1,11 @@
 <?php
+
+function protect_page(){
+	if (logged_in()===false){
+		header('Location: protected.php');
+		exit();
+	}
+}
 function array_sanitize(&$item) {
   $item = htmlentities(strip_tags(mysql_real_escape_string($item)));
 }

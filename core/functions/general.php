@@ -1,5 +1,13 @@
 <?php
 
+function logged_in_redirect(){
+	if (logged_in()===true){
+		header('Location: index.php');
+		exit();
+	}
+	
+}
+
 function protect_page(){
 	if (logged_in()===false){
 		header('Location: protected.php');

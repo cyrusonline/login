@@ -1,4 +1,5 @@
 <?php include 'core/init.php';
+logged_in_redirect();
 include 'includes/overall/header.php'; 
 if (empty($_POST)===false){
 	$required_fields = array('username','password','password_again','first_name','email');

@@ -58,8 +58,8 @@ if (empty($errors)===false){
 <?php 
 echo output_errors($errors);
 
-$err = array('1stError','2ndError','3rdError','4thError');
-echo xxx($err);
+// $err = array('1stError','2ndError','3rdError','4thError');
+// echo xxx($err);
  include 'includes/overall/footer.php';
 
 ?>

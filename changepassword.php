@@ -2,6 +2,7 @@
 include 'core/init.php'; 
 protect_page();
 
+
 if (empty($_POST)==false){
 // 	echo 'a';
 
@@ -15,9 +16,19 @@ if (empty($_POST)==false){
 	
 	}
 	//the $user_data variable is setted in init.php
-	echo $user_data['password'];
+// 	echo "user";
 	
-	print_r($errors);
+// 	echo $user_data['password'];
+	if (md5($_POST['current_password']) === $user_data['password']){
+		echo 'fine';
+		
+	} else {
+		$errors[]='Your current password is incorrect';
+	}
+	
+	//print_r($errors);
+	
+
 
 }
 

@@ -1,9 +1,22 @@
 <?php
+
+
+// function change_password($user_id, $password) {
+// 	$user_id = (int)$user_id;
+// 	$password = md5($password);
+
+// 	mysql_query("UPDATE `users` SET `password` = '$password', `password_recover` = 0 WHERE `user_id` = $user_id");
+// }
 function change_password($user_id, $password){
 	$user_id=(int)$user_id;
 	$password = md5($password);
-	mysql_query("UPADATE `users` SET `password` = '$password' WHERE `user_id`=$user_id");
+//	echo "UPADATE `users` SET `password` = '$password' WHERE `user_id`=$user_id";
+//UPDATE `lr`.`users` SET `password` = 'abc' WHERE `users`.`user_id` = 3;
+	mysql_query("UPDATE `users` SET `password` = '$password' WHERE `user_id`= $user_id;");
+//	mysql_query("UPDATE `users` SET `password` = '$password' WHERE `user_id` = $user_id;");
+
 	
+	//echo "UPADATE `users` SET `password` = '$password' WHERE `user_id`=$user_id";
 	
 }
 

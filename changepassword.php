@@ -40,13 +40,30 @@ if (empty($_POST)==false){
 
 include 'includes/overall/header.php'; ?>
   <h1>Change Password</h1>
+  
 <?php 
+
+if (isset($_GET['success'])&& empty($_GET['success']) ){
+	echo 'You \'ve been changed password successfully!';
+}else{
+	
+
+// if (empty($_POST) === false && empty($errors) === true) {
+// 	change_password($session_user_id, $_POST['password']);
+// 	header('Location: changepassword.php?success');
+// 	exit();
+
+// } else if (empty($errors) === false) {
+// 	echo output_errors($errors);
+// }
 
 if (empty($_POST) === false && empty($errors)===true){
 	//posted the form with no error
 // 	echo "ok";
-change_password($user_session_id, $_POST['password']);
-header('Location: changepassword.php?success');
+change_password($session_user_id, $_POST['password']);
+echo "UPADATE `users` SET `password` = ".$_POST['password']." WHERE `user_id`=$session_user_id";
+
+ header('Location: changepassword.php?success');
 }else if (empty($errors)==-false){
 	//output errors
 	echo output_errors($errors);
@@ -76,5 +93,7 @@ New password again*:<br>
 
 
 </form>
-<?php  include 'includes/overall/footer.php';
+<?php  
+}
+include 'includes/overall/footer.php';
 ?>
